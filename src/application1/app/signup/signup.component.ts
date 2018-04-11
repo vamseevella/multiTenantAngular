@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit}            from '@angular/core';
+import {LibService}                   from '../../../shared/service/lib.service';
+import {Event, NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -7,11 +9,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() {
+  constructor(private router: Router, private libservice: LibService) {
   }
 
   signUpDetails(signUpData) {
     console.log('signupdata', signUpData);
+    this.libservice.signUp(signUpData).subscribe((resp: any) => {
+      console.log('resp', resp);
+      debugger;
+      if (resp) {
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
   ngOnInit() {

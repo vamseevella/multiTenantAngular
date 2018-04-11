@@ -15,8 +15,6 @@ export class LoginComponent implements OnInit {
   loginDetails(userDetails) {
     console.log('userdetails', userDetails);
     this.libservice.login(userDetails).subscribe((resp: any) => {
-      console.log('resp', resp);
-      debugger;
       if (resp.data) {
         sessionStorage.setItem('userId', resp.data._id);
         sessionStorage.setItem('token', resp.data.token);

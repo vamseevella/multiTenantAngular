@@ -21,8 +21,8 @@ app.post('/createUser', function (req, res) {
 });
 
 app.post('/loginUser', function (req, res) {
-  console.log('login user');
-  db.user.findOne({'un': req.body.username, 'pwd': req.body.pwd}, {'pwd': 0}, function (err, data) {
+  console.log('login user', req.body);
+  db.user.findOne({'username': req.body.username, 'pwd': req.body.pwd}, {'pwd': 0}, function (err, data) {
     if (data) {
       var token = jwt.sign(data, app.get('secretKey'), {
         expiresIn: 86400 // expires in 24 hours
