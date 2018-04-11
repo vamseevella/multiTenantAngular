@@ -15,8 +15,6 @@ export class SignupComponent implements OnInit {
   signUpDetails(signUpData) {
     console.log('signupdata', signUpData);
     this.libservice.signUp(signUpData).subscribe((resp: any) => {
-      console.log('resp', resp);
-      debugger;
       if (resp) {
         this.router.navigate(['/login']);
       }
