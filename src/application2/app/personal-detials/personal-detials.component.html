@@ -1,0 +1,18 @@
+<div align="center" class="form_section">
+  <h3>Personal Details</h3>
+  <form #personalDetails="ngForm" (ngSubmit)="submitPersonalDetails(personalDetails.value)" novalidate>
+    <div class="form-group">
+      <input type="text" class="form-control" name="firstName" ngModel placeholder="First Name">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="lastName" ngModel placeholder="Last Name">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="designation" ngModel placeholder="Designation">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="workLocation" ngModel placeholder="Work location">
+    </div>
+    <button type="submit" class="btn btn-primary">submit</button>
+  </form>
+</div>

@@ -75,15 +75,13 @@ app.use(function (req, res, next) {
 });
 
 app.post('/CreatePersonalInfo', function (req, res) {
-  console.log('CreatePersonalInfo');
+  delete req.body.token;
   db.personalInfo.insert(req.body, function (err, data) {
     res.json(data);
   });
 });
 
 app.post('/GetPersonalInfo', function (req, res) {
-  console.log('GetPersonalInfo');
-  delete req.body.token;
   db.personalInfo.findOne({'userId': req.body.userId}, function (err, data) {
     res.json(data);
   });

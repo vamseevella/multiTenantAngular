@@ -15,14 +15,16 @@ app.set('secretKey', '12<345678ghhghg.#%@#^&*()~'); // secret variable
 
 app.use(express.static('../dist/app2'));
 
-app.post('/loginUser', function (req, res) {
-  console.log('login user');
-  db.user.findOne({'username': req.body.username, 'pwd': req.body.pwd}, function (err, data) {
-    console.log('================');
-    console.log('key', app.get('secretKey'));
-    console.log('data', data);
-    console.log('================');
+app.post('/createUser', function (req, res) {
+  console.log('create user');
+  db.user.insert(req.body, function (err, data) {
+    res.json(data);
+  });
+});
 
+app.post('/loginUser', function (req, res) {
+  console.log('login user', req.body);
+  db.user.findOne({'username': req.body.username, 'pwd': req.body.pwd}, {'pwd': 0}, function (err, data) {
     if (data) {
       var token = jwt.sign(data, app.get('secretKey'), {
         expiresIn: 86400 // expires in 24 hours
@@ -75,14 +77,13 @@ app.use(function (req, res, next) {
 });
 
 app.post('/CreatePersonalInfo', function (req, res) {
-  console.log('CreatePersonalInfo');
+  delete req.body.token;
   db.personalInfo.insert(req.body, function (err, data) {
     res.json(data);
   });
 });
 
 app.post('/GetPersonalInfo', function (req, res) {
-  console.log('GetPersonalInfo');
   db.personalInfo.findOne({'userId': req.body.userId}, function (err, data) {
     res.json(data);
   });
