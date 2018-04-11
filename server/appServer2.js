@@ -6,7 +6,7 @@ var jwt = require('jsonwebtoken');
 
 var app = express();
 
-var db = mongojs('test', ['user', 'personalInfo']);
+var db = mongojs('local', ['user', 'personalInfo']);
 
 app.use(morgon('dev'));
 app.use(bodyparser.json());
@@ -17,7 +17,7 @@ app.use(express.static('../dist/app2'));
 
 app.post('/loginUser', function (req, res) {
   console.log('login user');
-  db.user.findOne({'un': req.body.username, 'pwd': req.body.pwd}, function (err, data) {
+  db.user.findOne({'username': req.body.username, 'pwd': req.body.pwd}, function (err, data) {
     console.log('================');
     console.log('key', app.get('secretKey'));
     console.log('data', data);
