@@ -4,10 +4,11 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start:app1": "ng serve --app=app1",
+    "start:app2": "ng serve --app=app2",
     "build": "ng build --prod",
-    "build:app1": "ng build --prod --app 0",
-    "build:app2": "ng build --prod --app 1",
+    "build:app1": "ng build --prod --app app1",
+    "build:app2": "ng build --prod --app app2",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

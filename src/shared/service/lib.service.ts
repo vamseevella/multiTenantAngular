@@ -1,7 +1,18 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class LibService {
-  constructor() { }
-  getMeaning() { return 42; }
+  constructor(private http: HttpClient) {
+  }
+
+  login(userDetails) {
+    console.log('userDetails', userDetails);
+    return this.http.post('/loginUser', userDetails);
+  }
+
+  signUp(signUpDetails) {
+    console.log('signUpDetails', signUpDetails);
+    return this.http.post('/createUser', signUpDetails);
+  }
 }

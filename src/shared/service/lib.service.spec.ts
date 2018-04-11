@@ -13,7 +13,7 @@ describe('LibService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should return 42 from getMeaning', inject([LibService], (service: LibService) => {
+/*  it('should return 42 from getMeaning', inject([LibService], (service: LibService) => {
     expect(service.getMeaning()).toBe(42);
-  }));
+  }));*/
 });
