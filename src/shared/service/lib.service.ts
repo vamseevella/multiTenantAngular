@@ -15,4 +15,9 @@ export class LibService {
     console.log('signUpDetails', signUpDetails);
     return this.http.post('/createUser', signUpDetails);
   }
+
+  createPersonalDetailsForUser(personalDetails) {
+    console.log('personal details', personalDetails);
+    return this.http.post('CreatePersonalInfo', personalDetails);
+  }
 }
