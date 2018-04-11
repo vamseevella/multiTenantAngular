@@ -6,17 +6,20 @@ import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {SignupComponent} from './signup/signup.component';
+import {PersonalDetialsComponent} from './personal-detials/personal-detials.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent}
+  {path: 'signup', component: SignupComponent},
+  {path: 'personal-details', component: PersonalDetialsComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PersonalDetialsComponent
   ],
   imports: [
     BrowserModule,
