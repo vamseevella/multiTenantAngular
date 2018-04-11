@@ -1,0 +1,31 @@
+.center {
+  margin: 100px auto;
+  width: 400px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.menu_nav {
+  width: 200px;
+}
+
+.menu_nav li {
+  float: left;
+  list-style: none;
+
+  background: #cccccc;
+  margin-left: 5px;
+}
+
+.menu_nav li a {
+  background: #cccccc;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.menu_nav li a.active {
+  background: #3E8CDD;
+  border-color: transparent;
+  color: #fff;
+}
