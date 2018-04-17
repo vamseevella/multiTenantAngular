@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
+import { HttpHeaders,  } from '@angular/common/http';
 @Injectable()
 export class LibService {
   constructor(private http: HttpClient) {
@@ -19,5 +19,8 @@ export class LibService {
   createPersonalDetailsForUser(personalDetails) {
     console.log('personal details', personalDetails);
     return this.http.post('CreatePersonalInfo', personalDetails);
+  }
+  getPersonalData(data) {
+    return this.http.post('/GetPersonalInfo', data);
   }
 }
